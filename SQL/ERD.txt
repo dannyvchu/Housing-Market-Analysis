@@ -1,0 +1,100 @@
+https://app.quickdatabasediagrams.com/#/
+
+DescriptiveInfo
+-
+zpid int pk fk - RegressionData_all.zpid
+streetaddress
+description
+latitude
+longitude
+homeImage
+
+DateInfo
+-
+zpid int pk fk - RegressionData_all.zpid
+latestPrice
+latest_saledate
+latest_salemonth
+latest_saleyear
+
+ZipYear
+-
+zipcode int pk
+latest_saleyear int pk
+averageprice
+
+RegressionData_all
+-
+zpid int pk 
+latestPrice
+numOfBathrooms
+livingAreaSqFt
+numOfBedrooms
+avgSchoolRating
+numOfStories
+MedianStudentsPerTeacher
+numOfHighSchools
+longitude
+numOfPrimarySchools
+zipcode fk - ZipYear.zipcode
+propertyTaxRate
+latest_saledate
+latest_salemonth
+latest_saleyear fk - ZipYear.latest_saleyear
+
+RegressionData_2018
+-
+zpid int pk 
+latestPrice
+numOfBathrooms
+livingAreaSqFt
+numOfBedrooms
+avgSchoolRating
+numOfStories
+MedianStudentsPerTeacher
+numOfHighSchools
+longitude
+numOfPrimarySchools
+zipcode fk - ZipYear.zipcode
+propertyTaxRate
+latest_saledate
+latest_salemonth
+latest_saleyear fk - ZipYear.latest_saleyear
+
+RegressionData_2019
+-
+zpid int pk 
+latestPrice
+numOfBathrooms
+livingAreaSqFt
+numOfBedrooms
+avgSchoolRating
+numOfStories
+MedianStudentsPerTeacher
+numOfHighSchools
+longitude
+numOfPrimarySchools
+zipcode fk - ZipYear.zipcode
+propertyTaxRate
+latest_saledate
+latest_salemonth
+latest_saleyear fk - ZipYear.latest_saleyear
+
+RegressionData_2020
+-
+zpid int pk 
+latestPrice
+numOfBathrooms
+livingAreaSqFt
+numOfBedrooms
+avgSchoolRating
+numOfStories
+MedianStudentsPerTeacher
+numOfHighSchools
+longitude
+numOfPrimarySchools
+zipcode fk - ZipYear.zipcode
+propertyTaxRate
+latest_saledate
+latest_salemonth
+latest_saleyear fk - ZipYear.latest_saleyear
