@@ -1,5 +1,7 @@
 # Housing Market Analysis
 
+Link to google slides: https://docs.google.com/presentation/d/1cHTK7ICnjErINvytlLyeinshPlcZuPRem8DGJiTisXk/edit#slide=id.p
+
 Team Member Roles:
 
 Square: Danny
