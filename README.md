@@ -23,5 +23,6 @@ Data Source: Kaggle, Austin Housing Jan 2018 - Jan 2021
 Questions: For House Sellers and House Buyers - Is the house I'm selling/buying at a 'good' price for the current market?
 
 
-Important Features
+Important Feature
+
 
