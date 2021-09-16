@@ -14,9 +14,12 @@ Technologies(X): PostgreSQL, Python, Tableau, Google Slides
 
 ## Segment 1: 
 Topic: Predict Housing Data 
-Reason: Recently there has been a large explosion in the current housing market across the US, especially with Austin being ranked one of the top housing markets in the US. Data Source: Kaggle, Austin Housing Jan 2018 - Jan 2021 Questions: For House Sellers and House Buyers - Is the house I'm selling/buying at a 'good' price for the current market?
+Reason: Recently there has been a large explosion in the current housing market across the US, especially with Austin being ranked one of the top housing markets in the US. 
+Data Source: Kaggle, Austin Housing Jan 2018 - Jan 2021 
+Questions: For House Sellers and House Buyers - Is the house I'm selling/buying at a 'good' price for the current market?
 
 Important Features
+
 
 ## Segment 2:
 
@@ -41,3 +44,6 @@ Dashboard:
 1. Storyboard is included in Google Slides linked above
 2. Tableau will be the main tool used for the dashboard
 3. Interactive elements include pop-up tags in Tableau, and filtering options
+
+
+
