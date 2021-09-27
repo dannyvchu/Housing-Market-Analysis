@@ -1,43 +1,27 @@
 # Housing Market Analysis
 
-Team Member Roles:
+Team Members: Danny, Katelyn, Robert, Carlos
 
-GitHub(Square): Danny
+## Project Outline
 
-Machine Learning(Triangle): Danny Linear Regression, Random Forest, XGBoosting
+The purpose of this project is to use machine learning to help predict housing prices. For this analysis we used a dataset from Kaggle which is data from Jan2018-Jan2021 of Austin area housing prices. We did a preliminary analysis to determine which features were most related to the housing price. This included running a correlation matrix and feature importance. Once the dataset was cleaned and reduced to only include the most relevant features, we also calculated data of average price by zipcode and year. This was joined to the data in SQL. Finally, the cleaned data was analyzed using xgboost machine learning method.
 
-Database(Circle): Katelyn
-
-Dashboard: Robert, Carlos Storyboard on Google Slides
-
-Technologies(X): PostgreSQL, Python, Tableau, Google Slides
-
-Communication: Team will meet during class breakout sessions, communicate over slack, and hold additional Zoom meetings as needed.
-
-## Segment 1: 
-Topic: Predict Housing Data 
-
-Reason: Recently there has been a large explosion in the current housing market across the US, especially with Austin being ranked one of the top housing markets in the US. 
-
-Data Source: Kaggle, Austin Housing Jan 2018 - Jan 2021 
-
-Questions: For House Sellers and House Buyers - Is the house I'm selling/buying at a 'good' price for the current market?
-
-Important Features
+A presentation of the project is found here: https://docs.google.com/presentation/d/1cHTK7ICnjErINvytlLyeinshPlcZuPRem8DGJiTisXk/edit?usp=sharing
 
 
-## Segment 2:
+## Machine Learning: 
+1. Data pre-processing: In order to clean the data, some text heavy fields were removed such as the address and description. The remaining fields were updated so they were all numberic. Boolean values were converted to 0/1 and get dummies was used to convert other text fields to numberic. This is all included in the cleaning data notebook ([CleaningData](notebook/CleaningData.ipynb)) and google slides. 
+2. Feature selection: Some features were eliminated since only a handful of houses had them. After this preliminary cleaning, we used correlation matrix to pick the 5 features with most positive, and 5 features with the most negative correlation to price. An initial xgboost analysis was run with the full data set, and we pulled some of the top features based on feature importance. This is all included in the cleaning data notebook ([CleaningData](notebook/CleaningData.ipynb)) and google slides. 
+3. Training/splitting data: Two methods were investigated for training the data. One is to use the built in random splitting features. The second method was first splitting the data by year, then training for one year, and testing on the subsequent year. Using one year to train for the next decreased accuracy scores, so we used the built in random splitting feaure for training.
+4. Model choice: Linear regression, Random Forest, and xgboost were the three models tested in this analysis. xgboost had the highest accuracy score of the models tested. See Google slides for additional details.
+5. Changes of model choice: xgboost was the final method selected.
+6. Training/future training: Splitting the data by year did increase the accuracy score compared to all the data combined.
+7. Current accuracy score: 
+* 2018: Mean absolute error of 92,070 ([xgboost_optimization_2018](notebook/xgboost_optimization_2018.ipynb))
+* 2019: Mean absolute error of 88,289 ([xgboost_optimization_2019](notebook/xgboost_optimization_2019.ipynb))
+* 2020: Mean absolute error of 104,758 ([xgboost_optimization_2020](notebook/xgboost_optimization_2020.ipynb))
 
-Google Slides: https://docs.google.com/presentation/d/1cHTK7ICnjErINvytlLyeinshPlcZuPRem8DGJiTisXk/edit?usp=sharing
-
-Project Outline: Using housing data from Austin home sales from 2018-2020, we are evaluating which features are most linked to the housing prices, and using those features in machine learning to try to predict housing prices. In additional to the data provided in the set, we are have also included a column which has the average price based on the zip code and year of sale.
-
-Machine Learning: 
-1. Preliminary data pre-processing steps and features selection is include in cleaning data notebook ([CleaningData](notebook/CleaningData.ipynb)) and google slides. 
-2. Training/splitting data - two methods are being investigated for training the data. One is to use the built in random splitting features. The second method was first splitting the data by year, then training for one year, and testing on the subsequent year.
-3. Model choice - See Google slides for details
-
-Database:
+## Database:
 1. Cleaning data file pushes cleaned tables into pgAdmin ([CleaningData](notebook/CleaningData.ipynb))
 2. Joined tables are then pulled out of pgAdmin ([PullFromPGAdmin](notebook/PullFromPGAdmin.ipynb))
 3. Database has 7 tables from the original data
@@ -45,10 +29,20 @@ Database:
 5. SQLAlchemy is used for connecting pgAdmin in the jupyter notebook files
 6. ERD ![ERD_cleanedzip](SQL/ERD_cleanedzip.PNG)
 
-Dashboard: 
-1. Storyboard is included in Google Slides linked above
-2. Tableau will be the main tool used for the dashboard
-3. Interactive elements include pop-up tags in Tableau, and filtering options
+## Dashboard: 
+The Tableau Dashboard is available here: https://public.tableau.com/shared/WZQN84F3C?:display_count=n&:origin=viz_share_link
+
+1. The two images below show a map of the original housing price data and basic pricing information.
+
+![init_housing_map](images/init_housing_map.PNG)
+
+![init_housing_stats](images/init_housing_stats.PNG)
+
+2. The image below shows the data calculated in the analysis. Pricing by zipcode and year
+
+![zip_basics](images/zip_basics.PNG)
+
+3. In Tableau, the map include pop-up details of the address and home description. The other charts allow filtering. 
 
 
 
