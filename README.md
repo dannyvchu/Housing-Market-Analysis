@@ -28,6 +28,7 @@ XGBoost, or eXtreme Gradient Boosted trees, is one of the most powerful machine 
 * Cross-validation: Built in cross validation. XGBoost can evaluate the performance at each iteration of training and can find the optimal amount of iterations by stop the algorithm early if the performance isn’t improving.
 * Tree pruning: Normal decision tree algorithms will stop branching once the performance stops improving, where XGBoost will build a very deep tree, then “prune” the tree backwards, resulting in deeper, but more optimized tree.
 
+
 1. Once we load in the the data into our initial model, we'll need to prepare the data so that the algorithm can read it properly. We first drop any date columns (xgboost can't take in datetime formatted values), as well any zpid column, as it is just a placeholder id for each house.
 2. Next, we'll separate ouf data into our features and target variables. The 'latestPrice' column will be our target, and every other column will be our features.
 3. Training/splitting data: Two methods were investigated for training the data. One is to use the built in random splitting features. The second method was first splitting the data by year, then training for one year, and testing on the subsequent year. Using one year to train for the next decreased accuracy scores, so we used the built in random splitting feaure for training.
