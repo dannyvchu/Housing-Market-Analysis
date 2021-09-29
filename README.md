@@ -33,12 +33,23 @@ XGBoost, or eXtreme Gradient Boosted trees, is one of the most powerful machine 
 2. Next, we'll separate ouf data into our features and target variables. The 'latestPrice' column will be our target, and every other column will be our features.
 3. Training/splitting data: Two methods were investigated for training the data. One is to use the built in random splitting features. The second method was first splitting the data by year, then training for one year, and testing on the subsequent year. Using one year to train for the next decreased accuracy scores, so we used the built in random splitting feaure for training.
 4. Once the split is done, features data will be loaded into a training and test data matrix, or dmatrix, as XGBoost requires the data to be in that specific format.
-5. A baseline Mean Absolute Error (MAE) is calculated from the testing data to give us a baseline to compare our final MAE after we finish fine tuning all of our hyperparameters. [baseline_MAE](images/baseline_MAE.png)
+5. A baseline Mean Absolute Error (MAE) is calculated from the testing data to give us a baseline to compare our final MAE after we finish fine tuning all of our hyperparameters.
+
+![baseline_MAE](images/baseline_MAE.png)
+
 6. Then, we will create a dictionary of our hyperparameters we will be optimizing for, as we will be necessary for using GridSearch to automate this process.
 7. Taking advantage of XGBoost's built in cross validation, we will place in our initial parameters, and run the algorithm to find the optimal amount of iterations to minimize our MAE. We can set our "early_stopping_rounds" to 10, which if the algorithm's MAE does not improve after 10 iterations, it will stop the process.
-8. Once our optimal hyperparameters are found, we will update our parameters dictionary with the optimal values, and continue this proccess until all of our hyperparameters have been optimized. [params_dict](images/params_dict.PNG)
+8. Once our optimal hyperparameters are found, we will update our parameters dictionary with the optimal values, and continue this proccess until all of our hyperparameters have been optimized. 
+
+![params_dict](images/params_dict.png)
+
 9. We will run our model one final time with the optimal hyperparameter values, and save the model if it is needed to be used again in the future.
-10. Finally we will look at a few different metrics to test the accuracy of our model: R squared and adjusted R squaredm, root mean squared error, and root mean squared log error, and finally mean absolute error. [mmetrics](images/metrics.PNG) From top to bottom: R Squared/adjusted R squared, MSE/RMSE/RMSLE, and MAE.
+10. Finally we will look at a few different metrics to test the accuracy of our model: R squared and adjusted R squaredm, root mean squared error, and root mean squared log error, and finally mean absolute error. 
+
+![mmetrics](images/metrics.png)
+
+From top to bottom: R Squared/adjusted R squared, MSE/RMSE/RMSLE, and MAE.
+
 11. Our R squared and Root Mean Errors seem to imply a fairly accurate and robust model. However our final MAE of 91,495.53 is significant, and may make this model unusable for real life applications.
 12. Splitting the data by year did not really increase the accuracy score compared to all the data combined.
 13. Current accuracy score: 
